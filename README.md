@@ -3,12 +3,10 @@
 </h1>
 
 <p align="center">
-  A fairly simple `docker-compose` setup running ReIndev or FoxLoader as a server.
+  A fairly simple <pre>docker-compose</pre> setup running ReIndev or FoxLoader as a server.
 </p>
 
 # Guide
-
-Everything you need to know about directories, environment variables, and other things is below!
 
 1. Clone this repository.
 2. Setup your variables, folders, etc. as needed.
