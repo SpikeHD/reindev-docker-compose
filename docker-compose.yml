@@ -6,17 +6,19 @@ services:
     ports:
       - 25565:25565
     volumes:
-      - ./world:/usr/local/reindev/world
+      - ${PWD}/world:/usr/local/reindev/world
+      - ${PWD}/mods:/usr/local/reindev/mods
     environment:
       - JAVA_OPTS=-Xmx2G -Xms2G
+      - FOXLOADER=${FOXLOADER:-0}
     restart: always
 
   backup:
     image: alpine
     volumes:
-      - ./world:/usr/local/reindev/world
-      - ./backups:/backups
-      - ./backup.sh:/backup.sh
+      - ${PWD}/world:/usr/local/reindev/world
+      - ${PWD}/backups:/backups
+      - ${PWD}/scripts/backup.sh:/backup.sh:ro
     entrypoint: ["/bin/sh"]
     command: -c "mkdir -p /backups && while true; do /backup.sh; sleep 4h; done"
     restart: always

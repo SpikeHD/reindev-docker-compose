@@ -1,18 +1,24 @@
-FROM eclipse-temurin:8-alpine
+FROM eclipse-temurin:8-jre-noble
 
 # Install curl
-RUN apk add --no-cache curl
+RUN apt update && apt install -y curl
 
 # Create server/ directory
 RUN mkdir -p /usr/local/reindev
 WORKDIR /usr/local/reindev
 
-# Download the ReIndev server from GDrive
-RUN curl -L -o server.jar "https://drive.google.com/uc?export=download&id=1iqIQZUnrE2jYAZlCa4gzcjNu5Jp39TxP"
-RUN chmod +x server.jar
+# Copy scripts
+COPY scripts/ scripts/
 
-# "Accept" the EULA
-RUN echo "eula=true" > eula.txt
+# Download the server (different for FoxLoader and Vanilla)
+RUN chmod +x scripts/bootstrap.sh
+RUN scripts/bootstrap.sh
+
+# Copy extra files
+COPY extra/ extra/
+
+# Change permissions
+RUN chmod +x scripts/start.sh
 
 # Run the server
-CMD ["java", "-jar", "/usr/local/reindev/server.jar"]
+CMD ["scripts/start.sh"]

@@ -1,3 +1,11 @@
+world/*
 !world/.gitkeep
+
+mods/*
 !mods/.gitkeep
+
+backups/*
 !backups/.gitkeep
+
+extra/*
+!extra/.gitkeep
