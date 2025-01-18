@@ -8,9 +8,15 @@ services:
     volumes:
       - ${PWD}/world:/usr/local/reindev/world
       - ${PWD}/mods:/usr/local/reindev/mods
-    environment:
-      - JAVA_OPTS=-Xmx2G -Xms2G
-      - FOXLOADER=${FOXLOADER:-0}
+      
+      # Extra files
+      - ${PWD}/extra/server.properties:/usr/local/reindev/server.properties
+      - ${PWD}/extra/ops.txt:/usr/local/reindev/ops.txt
+      - ${PWD}/extra/banned-players.txt:/usr/local/reindev/banned-players.txt
+      - ${PWD}/extra/banned-ips.txt:/usr/local/reindev/banned-ips.txt
+      - ${PWD}/extra/white-list.txt:/usr/local/reindev/white-list.txt
+    env_file:
+      - server.env
     restart: always
 
   backup:
@@ -19,6 +25,8 @@ services:
       - ${PWD}/world:/usr/local/reindev/world
       - ${PWD}/backups:/backups
       - ${PWD}/scripts/backup.sh:/backup.sh:ro
+    env_file:
+      - backups.env
     entrypoint: ["/bin/sh"]
-    command: -c "mkdir -p /backups && while true; do /backup.sh; sleep 4h; done"
+    command: -c "while true; do /backup.sh; done"
     restart: always

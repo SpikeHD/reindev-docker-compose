@@ -6,6 +6,3 @@ mods/*
 
 backups/*
 !backups/.gitkeep
-
-extra/*
-!extra/.gitkeep
