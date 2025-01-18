@@ -16,10 +16,10 @@
 
 ## Directories
 
-`world` - This is where your world data will be. Or you can put an existing world in there, if you have one!
-`mods` - If using FoxLoader, this is where you should place your mod files. **REMINDER**: Mod `.jar` files should be placed in `mods/ReIndev<version>`, not at the root.
-`backups` - This is where backups will be stored.
-`extra` - This is where extra config files (`ops.txt`, `server.properties`, etc.) are stored. These are mounted as volumes, so they will change if the server changes them within the container.
+* `world` - This is where your world data will be. Or you can put an existing world in there, if you have one!
+* `mods` - If using FoxLoader, this is where you should place your mod files. **REMINDER**: Mod `.jar` files should be placed in `mods/ReIndev<version>`, not at the root.
+* `backups` - This is where backups will be stored.
+* `extra` - This is where extra config files (`ops.txt`, `server.properties`, etc.) are stored. These are mounted as volumes, so they will change if the server changes them within the container.
 
 ## Environment Variables
 
@@ -27,14 +27,14 @@ Set any variables you want to use in the `server.env` and `backups.env` files. T
 
 ### `server.env`
 
-- `FOXLOADER` - Set to `true`/`1`/etc. to use FoxLoader, or `false`/`0`/etc. to use Vanilla.
-- `SERVER_DOWNLOAD_URL` - The URL to download the vanilla server from.
-- `FOXLOADER_DOWNLOAD_URL` - The URL to download the FoxLoader server from.
+* `FOXLOADER` - Set to `true`/`1`/etc. to use FoxLoader, or `false`/`0`/etc. to use Vanilla.
+* `SERVER_DOWNLOAD_URL` - The URL to download the vanilla server from.
+* `FOXLOADER_DOWNLOAD_URL` - The URL to download the FoxLoader server from.
 
 ### `backups.env`
 
-- `RUN_EVERY` - How often to run the backup script, in seconds.
-- `KEEP_MAX` - How many backups to keep. Setting this to `0` will keep all backups.
+* `RUN_EVERY` - How often to run the backup script, in seconds.
+* `KEEP_MAX` - How many backups to keep. Setting this to `0` will keep all backups.
 
 # Notes
 
