@@ -17,7 +17,7 @@
 ## Directories
 
 * `world` - This is where your world data will be. Or you can put an existing world in there, if you have one!
-* `mods` - If using FoxLoader, this is where you should place your mod files. **REMINDER**: Mod `.jar` files should be placed in `mods/ReIndev<version>`, not at the root.
+* `mods` - If using FoxLoader, this is where you should place your mod files.
 * `backups` - This is where backups will be stored.
 * `extra` - This is where extra config files (`ops.txt`, `server.properties`, etc.) are stored. These are mounted as volumes, so they will change if the server changes them within the container.
 
