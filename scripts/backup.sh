@@ -6,7 +6,7 @@ BACKUP_FILE="world_backup_$DATE.tar.gz"
 
 KEEP_MAX=${KEEP_MAX:-12}
 
-sleep "$RUN_EVERY"
+sleep "${RUN_EVERY:-4h}"
 
 # Navigate to Minecraft server directory
 cd "$MINECRAFT_DIR" || exit

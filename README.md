@@ -27,14 +27,21 @@ Set any variables you want to use in the `server.env` and `backups.env` files. T
 
 ### `server.env`
 
-* `FOXLOADER` - Set to `true`/`1`/etc. to use FoxLoader, or `false`/`0`/etc. to use Vanilla.
+* `FOXLOADER` - Set to `true`/`1`/etc. to use FoxLoader, or `false`/`0`/etc. to use vanilla.
+  * **Not required**, will default to vanilla
 * `SERVER_DOWNLOAD_URL` - The URL to download the vanilla server from.
+  * **Required** if running vanilla
+  * **Not required** if running FoxLoader
 * `FOXLOADER_DOWNLOAD_URL` - The URL to download the FoxLoader server from.
+  * **Not required** if running FoxLoader (it will just download the latest release)
+  * **Not required** if running vanilla
 
 ### `backups.env`
 
 * `RUN_EVERY` - How often to run the backup script, in seconds.
+  * **Not required**, will default to `4h`
 * `KEEP_MAX` - How many backups to keep. Setting this to `0` will keep all backups.
+  * **Not required**, will default to `12`
 
 # Notes
 
