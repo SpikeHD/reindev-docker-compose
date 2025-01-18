@@ -1,0 +1,22 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server.dockerfile
+    ports:
+      - 25565:25565
+    volumes:
+      - ./world:/usr/local/reindev/world
+    environment:
+      - JAVA_OPTS=-Xmx2G -Xms2G
+    restart: always
+
+  backup:
+    image: alpine
+    volumes:
+      - ./world:/usr/local/reindev/world
+      - ./backups:/backups
+      - ./backup.sh:/backup.sh
+    entrypoint: ["/bin/sh"]
+    command: -c "mkdir -p /backups && while true; do /backup.sh; sleep 4h; done"
+    restart: always
