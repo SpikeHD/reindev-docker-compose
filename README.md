@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  A fairly simple <pre>docker-compose</pre> setup running ReIndev or FoxLoader as a server.
+  A fairly simple <code>docker-compose</code> setup running ReIndev or FoxLoader as a server.
 </p>
 
 # Guide
